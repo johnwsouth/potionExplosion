@@ -38,9 +38,45 @@ body {
   position: relative;
   display: inline-block;
   flex-direction: column;
-  background-image: url(../HackTest/images/aromatic-red-cedar-sealed.jpg);
+  background-image: url(../potionExplosion/images/aromatic-red-cedar-sealed.jpg);
   width: 8%;
   height: 85%;
   margin-left: 10px;
   border: 3px solid black;
+}
+
+.player {
+  position: relative;
+  display: inline-block;
+  width: 25%;
+  height: 49%;
+  background-color: black;
+  border-style: solid;
+  border-width: 2px;
+  vertical-align: text-bottom;
+
+}
+.potion-container{
+  position: relative;
+
+  width: 50%;
+  height: 50%;
+  background-color: white;
+}
+.tile {
+  position: relative;
+  width: 100%;
+  height: 32%;
+}
+.red-tile{
+
+  background-color: red;
+}
+
+.blue-tile{
+  background-color: blue;
+}
+
+.yellow-tile{
+  background-color: yellow;
 }
