@@ -1,41 +1,11 @@
 
+
 class MarbleDispenser{
   constructor(){
     this.masterHolder = ['red', 'red', 'red', 'blue', 'blue', 'blue', 'yellow', 'yellow', 'yellow'];
     this.dispenserArray = [];
+    this.marbleHandler = this.marbleHandler.bind(this);
   }
-
-  setUpDispenser() {
-    var rowArray = [];
-      for (var i = 0; i<5; i++){
-        var row = $("<div>").addClass('row');
-        $("body").append(row);
-
-        for (var j= 0; j<9; j++ ) {
-          this.randomizeMarbles();
-              var red = $("<div>").addClass('red marble');
-              var blue = $("<div>").addClass('blue marble');
-              var yellow = $("<div>").addClass('yellow marble');
-              if (this.masterHolder[j] === 'red') {
-                rowArray.push(red);
-                $(row).append(red);
-              } else if (this.masterHolder[j] === 'blue') {
-                rowArray.push(blue);
-                $(row).append(blue);
-              } else if (this.masterHolder[j] === 'yellow') {
-                rowArray.push(yellow);
-                $(row).append(yellow);
-              }
-              if (rowArray.length === 9) {
-                this.dispenserArray.push(rowArray);
-                rowArray = [];
-              }
-            }
-
-
-          }
-    return this.dispenserArray;
-        }
 
   randomizeMarbles() {
     var tempArray = [];
@@ -47,5 +17,49 @@ class MarbleDispenser{
     }
 
     this.masterHolder = tempArray;
+  }
+
+  setUpDispenser() {
+    var rowArray = [];
+      for (var i = 0; i<5; i++){
+        var row = $("<div>").addClass('row');
+        $(".marbleDispenser").append(row);
+
+        for (var j= 0; j<9; j++ ) {
+          this.randomizeMarbles();
+          var color = this.masterHolder[j];
+          var marble = $("<div>").addClass(color + ' marble');
+
+          rowArray.push(marble);
+          $(row).append(marble);
+            }
+        this.dispenserArray.push(rowArray);
+        rowArray = [];
+          }
+          return this.dispenserArray;
+        }
+
+
+  marbleHandler(event) {
+    console.log('DA:', this);
+    var currentMarble = $(event.currentTarget);
+    var marbleIndex = currentMarble.index();
+    var marbleRowIndex = currentMarble.closest('.row').index();
+    var currentMarbleBroIndex = marbleIndex + 1;
+    var currentMarbleSisIndex = marbleIndex - 1;
+    var currentMarbleBro = this.dispenserArray[marbleRowIndex][currentMarbleBroIndex];
+    var currentMarbleSis = this.dispenserArray[marbleRowIndex][currentMarbleSisIndex];
+
+    if (currentMarble.attr('class') === currentMarbleBro.attr('class') && currentMarble.attr('class') === currentMarbleSis.attr('class')) {
+       currentMarble.remove();
+       currentMarbleBro.remove();
+       currentMarbleSis.remove();
+    }
+  }
+
+
+
+  marbleClick(){
+    $(".marble").on('click', this.marbleHandler);
   }
     }

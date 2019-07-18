@@ -3,6 +3,11 @@ body {
   width: 100vw;
 }
 
+.marbleDispenser {
+  height: 75%;
+  width: 75%;
+}
+
 .red {
   height: 9%;
   width: 50%;
@@ -40,9 +45,10 @@ body {
   flex-direction: column;
   background-image: url(../potionExplosion/images/aromatic-red-cedar-sealed.jpg);
   width: 8%;
-  height: 85%;
+  height: 100%;
   margin-left: 10px;
   border: 3px solid black;
+  transform: rotateX(180deg);
 }
 
 .player {
