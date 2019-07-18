@@ -62,9 +62,19 @@ body {
   vertical-align: text-bottom;
 
 }
+
+.player-points {
+  width: 40%;
+  height: 30%;
+  position: relative;
+  display: block;
+  background-color: white;
+  left: 0;
+}
+
 .potion-container{
   position: relative;
-
+  display: inline-block;
   width: 50%;
   height: 50%;
   background-color: white;

@@ -6,18 +6,19 @@ class NewPlayer{
     this.myTurn = false;
     this.playerNumber = playerNumber;
 
+
   }
-  endTurn() {
-    this.myTurn = false;
-    player2.myTurn = true;
-    //MarbleDispenser.takeMarbles();
-  }
+
   render(){
     this.playerTile = $("<div>");
     //this.playerTile.attr("data-player",this.playerNumber);
     this.playerTile.addClass("player");
 
-
+    var points = $("<div>");
+    points.attr("data-player-points",this.playerNumber);
+    points.addClass('player-points');
+    points.text("Player " + this.playerNumber + " Potion Points: " +this.completePotions)
+    this.playerTile.append(points);
     var body = $("body");
     body.append(this.playerTile);
 
