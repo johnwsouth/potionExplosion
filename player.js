@@ -1,5 +1,5 @@
 
-class NewPlayer(){
+class NewPlayer{
   constructor(playerNumber){
     this.completePotions = 0;
     this.hand = [];
@@ -7,15 +7,20 @@ class NewPlayer(){
     this.playerNumber = playerNumber;
 
   }
-  function endTurn() {
-    //callback of click handler
+  endTurn() {
     this.myTurn = false;
     player2.myTurn = true;
-    MarbleDispenser.takeMarbles();
+    //MarbleDispenser.takeMarbles();
   }
-  function render(){
+  render(){
     this.playerTile = $("<div>");
-    this.playerTile.addClass("player-tile"+playerNumber);
+    //this.playerTile.attr("data-player",this.playerNumber);
+    this.playerTile.addClass("player");
+
+
+    var body = $("body");
+    body.append(this.playerTile);
+
 
   }
 }

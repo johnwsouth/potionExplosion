@@ -1,10 +1,4 @@
-$(document).ready(initializeApp);
 
-function initializeApp() {
-  var marbleD = new MarbleDispenser();
-  marbleD.setUpDispenser();
-  marbleD.marbleClick();
-}
 
 class MarbleDispenser{
   constructor(){
