@@ -51,7 +51,95 @@ class Potion {
 
     removePotion(playerNumber){
       debugger;
-      var currentPotion = $("[data-player="+playerNumber+"]").remove();
+      $("[data-player="+playerNumber+"]").remove();
+      if (playerNumber === "1"){
+        var redMax = gameMaster.player1Potion.redMarbleMax;
+        var blueMax = gameMaster.player1Potion.blueMarbleMax;
+        var yellowMax = gameMaster.player1Potion.yellowMarbleMax;
+
+        for (var i = 0; i < redMax; i++) {
+          var randomNumber = Math.floor(Math.random() * gameMaster.dispenser.dispenserArray.length);
+          if (gameMaster.dispenser.dispenserArray[randomNumber].length < 9) {
+
+            var tempDomElem = $("<div>").addClass("marble");
+            tempDomElem.addClass("red");
+
+            var currentRow = $("[data-row=" + randomNumber + "]")
+            currentRow.append(tempDomElem);
+            gameMaster.dispenser.dispenserArray[randomNumber].push(tempDomElem);
+          }
+        }
+        for (var i = 0; i < blueMax; i++) {
+          var randomNumber = Math.floor(Math.random() * gameMaster.dispenser.dispenserArray.length);
+          if (gameMaster.dispenser.dispenserArray[randomNumber].length < 9) {
+
+            var tempDomElem = $("<div>").addClass("marble");
+            tempDomElem.addClass("blue");
+
+            var currentRow = $("[data-row=" + randomNumber + "]")
+            currentRow.append(tempDomElem);
+            gameMaster.dispenser.dispenserArray[randomNumber].push(tempDomElem);
+          }
+        }
+        for (var i = 0; i < yellowMax; i++) {
+          var randomNumber = Math.floor(Math.random() * gameMaster.dispenser.dispenserArray.length);
+          if (gameMaster.dispenser.dispenserArray[randomNumber].length < 9) {
+
+            var tempDomElem = $("<div>").addClass("marble");
+            tempDomElem.addClass("yellow");
+
+            var currentRow = $("[data-row=" + randomNumber + "]")
+            currentRow.append(tempDomElem);
+            gameMaster.dispenser.dispenserArray[randomNumber].push(tempDomElem);
+          }
+        }
+
+      }
+
+      else if (playerNumber === "2") {
+        var redMax = gameMaster.player2Potion.redMarbleMax;
+        var blueMax = gameMaster.player2Potion.blueMarbleMax;
+        var yellowMax = gameMaster.player2Potion.yellowMarbleMax;
+
+        for (var i = 0; i < redMax; i++) {
+          var randomNumber = Math.floor(Math.random() * gameMaster.dispenser.dispenserArray.length);
+          if (gameMaster.dispenser.dispenserArray[randomNumber].length < 9) {
+
+            var tempDomElem = $("<div>").addClass("marble");
+            tempDomElem.addClass("red");
+
+            var currentRow = $("[data-row=" + randomNumber + "]")
+            currentRow.append(tempDomElem);
+            gameMaster.dispenser.dispenserArray[randomNumber].push(tempDomElem);
+          }
+        }
+        for (var i = 0; i < blueMax; i++) {
+          var randomNumber = Math.floor(Math.random() * gameMaster.dispenser.dispenserArray.length);
+          if (gameMaster.dispenser.dispenserArray[randomNumber].length < 9) {
+
+            var tempDomElem = $("<div>").addClass("marble");
+            tempDomElem.addClass("blue");
+
+            var currentRow = $("[data-row=" + randomNumber + "]")
+            currentRow.append(tempDomElem);
+            gameMaster.dispenser.dispenserArray[randomNumber].push(tempDomElem);
+          }
+        }
+        for (var i = 0; i < yellowMax; i++) {
+          var randomNumber = Math.floor(Math.random() * gameMaster.dispenser.dispenserArray.length);
+          if (gameMaster.dispenser.dispenserArray[randomNumber].length < 9) {
+
+            var tempDomElem = $("<div>").addClass("marble");
+            tempDomElem.addClass("yellow");
+
+            var currentRow = $("[data-row=" + randomNumber + "]")
+            currentRow.append(tempDomElem);
+            gameMaster.dispenser.dispenserArray[randomNumber].push(tempDomElem);
+          }
+        }
+
+      }
+
       gameMaster.generatePotion(this.potionsPlayer);
     }
 
